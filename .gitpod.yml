@@ -9,7 +9,7 @@ tasks:
       solana config set --url localhost
       solana-keygen new --no-bip39-passphrase
     command: |
-      gp open README-gitpod.md
+      gp open README.md
 github:
   prebuilds:
     # enable for the master/default branch (defaults to true)
