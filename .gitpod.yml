@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - init: |
-      sh -c "$(curl -sSfL https://release.solana.com/v1.6.7/install)"
+      sh -c "$(curl -sSfL https://release.solana.com/v1.6.6/install)"
       export PATH=~/.local/share/solana/install/active_release/bin:$PATH
     command: |
       gp open README.md
