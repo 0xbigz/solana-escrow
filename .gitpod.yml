@@ -4,8 +4,16 @@ tasks:
   - init: |
       sh -c "$(curl -sSfL https://release.solana.com/v1.6.6/install)"
       export PATH=~/.local/share/solana/install/active_release/bin:$PATH
+      npm run build:program-rust
+      solana config set --url localhost
+      solana-keygen new --no-bip39-passphrase
+      solana airdrop 1000
+      solana program deploy /workspace/solana-escrow/dist/program/solana_escrow.so
     command: |
       gp open README.md
+      cd src/client && npm install
+      npm install -g @vue/cli@latest
+
 github:
   prebuilds:
     # enable for the master/default branch (defaults to true)
