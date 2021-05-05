@@ -4,10 +4,10 @@ tasks:
   - init: |
       sh -c "$(curl -sSfL https://release.solana.com/v1.6.7/install)"
       export PATH=~/.local/share/solana/install/active_release/bin:$PATH
-      # npm install
-      # npm run build:program-rust
-      # solana config set --url localhost
-      # solana-keygen new --no-bip39-passphrase
+      npm install
+      npm run build:program-rust
+      solana config set --url localhost
+      solana-keygen new --no-bip39-passphrase
     command: |
       gp open README.md
 github:
@@ -17,11 +17,11 @@ github:
     # enable for all branches in this repo (defaults to false)
     branches: false
     # enable for pull requests coming from this repo (defaults to true)
-    pullRequests: true
+    pullRequests: false
     # add a check to pull requests (defaults to true)
-    addCheck: true
+    addCheck: false
     # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
-    addComment: true
+    addComment: false
 ports:
   - port: 1024
     onOpen: ignore
