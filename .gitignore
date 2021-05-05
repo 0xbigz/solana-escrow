@@ -2,10 +2,11 @@
 # PROGRAM
 #
 
-/*-dump.txt
-/*.so
-/target/
-test-ledger
+src/program-rust/*-dump.txt
+src/program-rust/*.so
+src/program-rust/target/
+src/program-rust/test-ledger/
+test-ledger/
 
 
 #
