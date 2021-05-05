@@ -4,6 +4,10 @@ tasks:
   - init: |
       sh -c "$(curl -sSfL https://release.solana.com/v1.6.7/install)"
       export PATH=~/.local/share/solana/install/active_release/bin:$PATH
+      # npm install
+      # npm run build:program-rust
+      # solana config set --url localhost
+      # solana-keygen new --no-bip39-passphrase
     command: |
       gp open README.md
 github:
