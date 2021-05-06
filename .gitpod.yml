@@ -1,18 +1,27 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - name: Shost
+  - name: Senv
     init: |
-      npm run build:program-rust
-      solana config set --url localhost
-      solana-keygen new --no-bip39-passphrase
-      solana airdrop 1000
-      solana program deploy /workspace/solana-escrow/dist/program/solana_escrow.so
+      rustup install nightly
     command: |
       gp open README.md
   - name: Sval
-    init: echo "run cmd solana-test-validator"
-      
+    init: |
+      solana-keygen new  --no-bip39-passphrase
+      solana config set --url localhost
+      solana-test-validator
+  - name: Shost
+    init: |
+      npm install
+      npm run build:program-rust
+      solana airdrop 1000
+      solana program deploy /workspace/solana-escrow/dist/program/solana_escrow.so
+  - name: Sweb
+    init: |
+      cd src/client
+      npm install
+      npm run serve   
 
 github:
   prebuilds:
