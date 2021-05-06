@@ -3,8 +3,6 @@ image:
 tasks:
   - name: Shost
     init: |
-      sh -c "$(curl -sSfL https://release.solana.com/v1.6.6/install)"
-      export PATH=~/.local/share/solana/install/active_release/bin:$PATH
       npm run build:program-rust
       solana config set --url localhost
       solana-keygen new --no-bip39-passphrase
@@ -13,7 +11,7 @@ tasks:
     command: |
       gp open README.md
   - name: Sval
-    init: solana-test-validator
+    init: echo "run cmd solana-test-validator"
       
 
 github:
