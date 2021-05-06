@@ -10,7 +10,7 @@ tasks:
     init: |
       solana-keygen new  --no-bip39-passphrase
       solana config set --url localhost
-      solana-test-validator
+      echo "solana-test-validator"
   - name: Shost
     init: |
       npm install
