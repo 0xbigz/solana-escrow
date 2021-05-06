@@ -1,7 +1,8 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: |
+  - name: Shost
+    init: |
       sh -c "$(curl -sSfL https://release.solana.com/v1.6.6/install)"
       export PATH=~/.local/share/solana/install/active_release/bin:$PATH
       npm run build:program-rust
@@ -11,8 +12,9 @@ tasks:
       solana program deploy /workspace/solana-escrow/dist/program/solana_escrow.so
     command: |
       gp open README.md
-      cd src/client && npm install
-      npm install -g @vue/cli@latest
+  - name: Sval
+    init: solana-test-validator
+      
 
 github:
   prebuilds:
